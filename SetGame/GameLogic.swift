@@ -32,7 +32,7 @@ struct SetCardContent {
      */
     /* new comment*/
     
-    //created new test branch
+    //created a new test branch for new functionality
     //added another comment for next function
 }
 
