@@ -30,5 +30,6 @@ struct SetCardContent {
      let shape:
      let shading:
      */
+    /* new comment*/
 }
 
