@@ -4,6 +4,7 @@
 //
 //  Created by Pia Dünow on 20.11.22.
 //
+// model
 
 import Foundation
 
@@ -11,15 +12,18 @@ struct GameLogic {
     private(set) var cards: Array<Card>
     private var indiciesOfSelectedCards: Array<Int>
     
-    init(cards: Array<Card>, indiciesOfSelectedCards: Array<Int>) {
-        self.cards = cards
-        self.indiciesOfSelectedCards = indiciesOfSelectedCards
+    init() {
+        self.indiciesOfSelectedCards = []
+        self.cards = []
+        for cardIndex in 0...81 {
+            cards.append(Card(id: cardIndex))
+        }
     }
     
-    struct Card {
+    struct Card: Identifiable{
         let id: Int
         var isMatched: Bool = false
-        let content: SetCardContent
+        //let content: SetCardContent
         
     }
 }
