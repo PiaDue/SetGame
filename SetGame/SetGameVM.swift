@@ -12,6 +12,7 @@ class SetGameVM: ObservableObject { //pronounces changes in the model to the vie
     
     @Published private var model = GameLogic()
     
+    //access to the cards
     var cards: Array<GameLogic.Card>{
         get{return model.cards}
     }

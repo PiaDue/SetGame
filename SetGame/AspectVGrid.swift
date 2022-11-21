@@ -4,6 +4,7 @@
 //
 //  Created by Pia Dünow on 21.11.22.
 //
+// Grid of Cards
 
 import SwiftUI
 

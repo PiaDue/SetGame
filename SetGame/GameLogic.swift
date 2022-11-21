@@ -4,7 +4,7 @@
 //
 //  Created by Pia Dünow on 20.11.22.
 //
-// model
+// Model
 
 import Foundation
 
@@ -16,6 +16,7 @@ struct GameLogic {
         self.indiciesOfSelectedCards = []
         self.cards = []
         for cardIndex in 0...81 {
+            // calculate card properties
             cards.append(Card(id: cardIndex))
         }
     }
@@ -23,20 +24,6 @@ struct GameLogic {
     struct Card: Identifiable{
         let id: Int
         var isMatched: Bool = false
-        //let content: SetCardContent
-        
+        //properties: color, shape, shading -> using enum ?
     }
 }
-
-struct SetCardContent {
-    /*
-     let color: new three-value-datatype (using enum?)
-     let shape:
-     let shading:
-     */
-    /* new comment*/
-    
-    //created new test branch
-    //added another comment for next function with more details
-}
-
