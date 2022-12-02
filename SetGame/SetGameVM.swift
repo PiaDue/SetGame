@@ -27,6 +27,7 @@ class SetGameVM: ObservableObject { //pronounces changes in the model to the vie
         return visibleCards
     }
     
+    
     static func getColor(card: GameLogic.Card) -> SwiftUI.Color {
         switch card.color {
         case .teal: return SwiftUI.Color.teal

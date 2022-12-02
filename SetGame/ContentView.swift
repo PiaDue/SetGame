@@ -15,10 +15,23 @@ struct ContentView: View {
         VStack {
             
             //Grid of Cards
-            AspectVGrid(items: viewModel.visibleCards, aspectRatio: 4/5, content: { card in
-                CardView(card: card)
-            })
-            .foregroundColor(.black)
+            if(viewModel.getVisibleCards().count > 24){
+                GeometryReader{ geometry in
+                    ScrollView{
+                        LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width/5))], spacing: 0.0){
+                            ForEach (viewModel.visibleCards){ card in
+                                cardView(for: card).aspectRatio(4/5, contentMode: .fit)
+                            }
+                        }.foregroundColor(.black)
+                    }
+                }
+                
+            }else{
+                AspectVGrid(items: viewModel.visibleCards, aspectRatio: 4/5, content: { card in
+                    cardView(for: card)
+                })
+                .foregroundColor(.black)
+            }
             
             //Buttons
             HStack {
@@ -62,7 +75,6 @@ struct CardView: View {
             shape.strokeBorder(lineWidth: CardViewConstants.borderLineWidth)
             buildcardContent()
                 .padding(10)
-                .foregroundColor(SetGameVM.getColor(card: card))
         }
         .padding(4)
     }
@@ -93,12 +105,15 @@ struct CardView: View {
                     .opacity(SetGameVM.getOpacity(card: card))
                 RoundedRectangle(cornerRadius: 5).strokeBorder(lineWidth: 2).aspectRatio(6/3, contentMode: .fit)
             }
+            .foregroundColor(SetGameVM.getColor(card: card))
+            
         case .diamond:
             ZStack{
                 Circle().fill()
                     .opacity(SetGameVM.getOpacity(card: card))
                 Circle().strokeBorder(lineWidth: 2)
             }
+            .foregroundColor(SetGameVM.getColor(card: card))
             
         case .oval:
             ZStack{
@@ -106,13 +121,9 @@ struct CardView: View {
                     .opacity(SetGameVM.getOpacity(card: card))
                 RoundedRectangle(cornerRadius: 50).strokeBorder(lineWidth: 2).aspectRatio(6/3, contentMode: .fit)
             }
+            .foregroundColor(SetGameVM.getColor(card: card))
         }
     }
-    
-    
-    
-    
-    
     
     
     private struct CardViewConstants{
@@ -120,11 +131,6 @@ struct CardView: View {
         static let borderLineWidth: CGFloat = 3
     }
 }
-
-
-
-
-
 
 
 // Preview
