@@ -28,6 +28,8 @@ struct ContentView: View {
                         .font(.title2)
                         .foregroundColor(Color.white)
                 }
+                .onTapGesture {viewModel.set3NewCardsToVisible()}
+                
                 Spacer()
                 ZStack {
                     RoundedRectangle(cornerRadius: 10).foregroundColor(.accentColor)

@@ -14,7 +14,21 @@ class SetGameVM: ObservableObject { //pronounces changes in the model to the vie
     
     //access to the cards
     var cards: Array<GameLogic.Card>{
-        get{return model.cards}
+        get{getVisibleCards()}
+    }
+    
+    func getVisibleCards() -> Array<GameLogic.Card>{
+        var visibleCards: Array<GameLogic.Card> = []
+        for i in 0 ..< model.cards.count {
+            if model.cards[i].isVisible {
+                visibleCards.append(model.cards[i])
+            }
+        }
+        return visibleCards
+    }
+    
+    func set3NewCardsToVisible(){
+        model.set3NewCardsToVisible()
     }
     
 }
