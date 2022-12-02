@@ -15,8 +15,8 @@ struct ContentView: View {
         VStack {
             
             //Grid of Cards
-            AspectVGrid(items: viewModel.cards, aspectRatio: 5/4, content: { card in
-                cardView(for: card)
+            AspectVGrid(items: viewModel.visibleCards, aspectRatio: 4/5, content: { card in
+                CardView(card: card)
             })
             .foregroundColor(.black)
             
@@ -29,14 +29,14 @@ struct ContentView: View {
                         .foregroundColor(Color.white)
                 }
                 .onTapGesture {viewModel.set3NewCardsToVisible()}
-                
-                Spacer()
+                                
                 ZStack {
                     RoundedRectangle(cornerRadius: 10).foregroundColor(.accentColor)
                     Text("New Game")
                         .font(.title2)
                         .foregroundColor(Color.white)
                 }
+                .onTapGesture {viewModel.newGame()}
             }
             .frame(height: 50.0)
         }
@@ -60,14 +60,68 @@ struct CardView: View {
             let shape = RoundedRectangle(cornerRadius: CardViewConstants.cornerRadius)
             shape.fill().foregroundColor(.white)
             shape.strokeBorder(lineWidth: CardViewConstants.borderLineWidth)
+            buildcardContent()
+                .padding(10)
+                .foregroundColor(SetGameVM.getColor(card: card))
+        }
+        .padding(4)
+    }
+    
+    @ViewBuilder
+    private func buildcardContent() -> some View {
+        VStack{
+            switch card.numOfShapes{
+            case .one:
+                buildshape()
+            case .two:
+                buildshape()
+                buildshape()
+            case .three:
+                buildshape()
+                buildshape()
+                buildshape()
+            }
         }
     }
+    
+    @ViewBuilder
+    private func buildshape() -> some View {
+        switch card.shape {
+        case .rectangle:
+            ZStack{
+                RoundedRectangle(cornerRadius: 5).fill().aspectRatio(6/3, contentMode: .fit)
+                    .opacity(SetGameVM.getOpacity(card: card))
+                RoundedRectangle(cornerRadius: 5).strokeBorder(lineWidth: 2).aspectRatio(6/3, contentMode: .fit)
+            }
+        case .diamond:
+            ZStack{
+                Circle().fill()
+                    .opacity(SetGameVM.getOpacity(card: card))
+                Circle().strokeBorder(lineWidth: 2)
+            }
+            
+        case .oval:
+            ZStack{
+                RoundedRectangle(cornerRadius: 50).fill().aspectRatio(6/3, contentMode: .fit)
+                    .opacity(SetGameVM.getOpacity(card: card))
+                RoundedRectangle(cornerRadius: 50).strokeBorder(lineWidth: 2).aspectRatio(6/3, contentMode: .fit)
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
     
     private struct CardViewConstants{
         static let cornerRadius: CGFloat = 10
         static let borderLineWidth: CGFloat = 3
     }
 }
+
+
 
 
 
