@@ -12,6 +12,8 @@
 		E3230C5B292A5A8800A26CDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3230C5A292A5A8800A26CDE /* Assets.xcassets */; };
 		E3230C5E292A5A8800A26CDE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3230C5D292A5A8800A26CDE /* Preview Assets.xcassets */; };
 		E3230C69292A62D000A26CDE /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3230C68292A62D000A26CDE /* GameLogic.swift */; };
+		E3472953292B86A200311B84 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3472952292B86A200311B84 /* AspectVGrid.swift */; };
+		E3472955292B925A00311B84 /* SetGameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3472954292B925A00311B84 /* SetGameVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		E3230C5A292A5A8800A26CDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3230C5D292A5A8800A26CDE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E3230C68292A62D000A26CDE /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
+		E3472952292B86A200311B84 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
+		E3472954292B925A00311B84 /* SetGameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +58,9 @@
 			isa = PBXGroup;
 			children = (
 				E3230C56292A5A8300A26CDE /* SetGameApp.swift */,
+				E3472954292B925A00311B84 /* SetGameVM.swift */,
 				E3230C58292A5A8300A26CDE /* ContentView.swift */,
+				E3472952292B86A200311B84 /* AspectVGrid.swift */,
 				E3230C68292A62D000A26CDE /* GameLogic.swift */,
 				E3230C5A292A5A8800A26CDE /* Assets.xcassets */,
 				E3230C5C292A5A8800A26CDE /* Preview Content */,
@@ -140,6 +146,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3472955292B925A00311B84 /* SetGameVM.swift in Sources */,
+				E3472953292B86A200311B84 /* AspectVGrid.swift in Sources */,
 				E3230C59292A5A8300A26CDE /* ContentView.swift in Sources */,
 				E3230C69292A62D000A26CDE /* GameLogic.swift in Sources */,
 				E3230C57292A5A8300A26CDE /* SetGameApp.swift in Sources */,
